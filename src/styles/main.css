@@ -14,7 +14,7 @@ body {
   padding: 2rem;
   background-color: #44c4f2;
   color: yellow;
-  border: dashed 12px #f0436e;
+  border: dashed 12px #f564a9;
 }
 
 .partyRequests {
@@ -27,7 +27,14 @@ body {
   padding: 2rem;
   background-color: #44c4f2;
   color: yellow;
-  border: dashed 12px #f0436e;
+  border: dashed 12px #f564a9;
+}
+
+.request-object {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  list-style-type: none;
 }
 
 .balloons {
