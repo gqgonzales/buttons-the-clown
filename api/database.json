@@ -1,0 +1,78 @@
+{
+  "clowns": [
+    {
+      "id": 1,
+      "name": "Buttons"
+    },
+    {
+      "id": 2,
+      "name": "Lollipop"
+    }
+  ],
+  "clownJobs": [
+    {
+      "id": 1,
+      "clownId": 1,
+      "jobId": 1
+    },
+    {
+      "id": 2,
+      "clownId": 2,
+      "jobId": 2
+    }
+  ],
+  "parents": [
+    {
+      "id": 1,
+      "name": "Steve Brownlee"
+    },
+    {
+      "id": 2,
+      "name": "Meek Mill"
+    }
+  ],
+  "children": [
+    {
+      "id": 1,
+      "name": "Brownie Brownlee"
+    },
+    {
+      "id": 2,
+      "name": "Lil Mill"
+    }
+  ],
+  "families": [
+    {
+      "id": 1,
+      "parentId": 1,
+      "childId": 1,
+      "lastName": "Brownlee"
+    },
+    {
+      "id": 2,
+      "parentId": 2,
+      "childId": 2,
+      "lastName": "Mill"
+    }
+  ],
+  "requests": [
+    {
+      "id": 1,
+      "clownId": 1,
+      "familyId": 2,
+      "address": "1099 Shandytown Rd",
+      "attendees": 10,
+      "date": "2021-05-27",
+      "reservationLength": 2.5
+    },
+    {
+      "id": 2,
+      "clownId": 2,
+      "familyId": 1,
+      "address": "3608 Martian Hill St",
+      "attendees": 16,
+      "date": "2021-06-04",
+      "reservationLength": 3.0
+    }
+  ]
+}

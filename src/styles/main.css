@@ -1,0 +1,18 @@
+body {
+  font-family: "Cabin", sans-serif;
+  margin: 0;
+  background-color: yellow;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  justify-content: center;
+  text-align: center;
+  margin: 2rem;
+  padding: 2rem;
+  background-color: #44c4f2;
+  color: yellow;
+  border: dashed 12px #f0436e;
+}
