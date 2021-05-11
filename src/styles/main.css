@@ -4,7 +4,7 @@ body {
   background-color: yellow;
 }
 
-h1 {
+.main-header {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -15,4 +15,23 @@ h1 {
   background-color: #44c4f2;
   color: yellow;
   border: dashed 12px #f0436e;
+}
+
+.partyRequests {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  justify-content: center;
+  text-align: center;
+  margin: 2rem;
+  padding: 2rem;
+  background-color: #44c4f2;
+  color: yellow;
+  border: dashed 12px #f0436e;
+}
+
+.balloons {
+  display: flex;
+  max-width: 50%;
+  justify-content: center;
 }
