@@ -12,6 +12,7 @@ export const PartyForm = () => {
         placeholder="Parent's Name"
       />
     </div>
+
     <div class="field">
     <input
       type="text"
@@ -20,6 +21,7 @@ export const PartyForm = () => {
       placeholder="Child's Name"
     />
   </div>
+
   <div class="field">
   <input
     type="text"
@@ -28,6 +30,7 @@ export const PartyForm = () => {
     placeholder="Party Address"
   />
 </div>
+
 <div class="field">
 <!-- <label for="partyAttendees">Number of guests (including your child)</label> -->
 <input
@@ -39,6 +42,7 @@ export const PartyForm = () => {
   placeholder="Number of guests (including your child)"
 />
 </div>
+
 <div class="field">
 <input
   type="text"
@@ -47,9 +51,18 @@ export const PartyForm = () => {
   placeholder="Party duration (in hours)"
 />
 </div>
+
 <div class="field">
 <!-- <label class="label" for="partyDate">Date of event</label> -->
 <input type="date" name="partyDate" class="input" placeholder="Date of Event (click to select)" />
+</div>
+
+<div class="field">
+<label for="clowns">Choose a Clown:</label>
+<select name="partyClowns">
+  <option value="Buttons">Buttons</option>
+  <option value="Lollipop">Lollipop</option>
+</select>
 </div>
 
 <button class="button" id="submitButton">*~*~*~*~*~*~Let's Party*~*~*~*~*~*~</button>
@@ -79,6 +92,9 @@ mainContainer.addEventListener("click", (clickEvent) => {
     const partyDate = document.querySelector(
       "input[name='partyDate']"
     ).value;
+    const clownId = document.querySelector(
+      "input[name='partyClowns']"
+    ).value;
 
     // Make an object out of the user input
     const dataToSendToAPI = {
@@ -86,8 +102,9 @@ mainContainer.addEventListener("click", (clickEvent) => {
       childsName: partyChildsName,
       address: partyAddress,
       attendees: partyAttendees,
-      rservationLength: partyDuration,
+      reservationLength: partyDuration,
       date: partyDate,
+      clownId: clownId,
     };
 
     // Send the data to the API for permanent storage
