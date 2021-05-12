@@ -1,4 +1,4 @@
-import { getRequests } from "./dataAccess.js";
+import { getRequests, deleteRequest } from "./dataAccess.js";
 
 export const Requests = () => {
   let requests = getRequests();
@@ -15,6 +15,10 @@ export const Requests = () => {
             Address: ${requestObject.address}
             Date: ${requestObject.date}
             Hours: ${requestObject.reservationLength}
+            <button class="request__delete"
+                      id="request--${requestObject.id}">
+                      Delete
+                    </button>
             </li>
             `;
           })
@@ -23,3 +27,12 @@ export const Requests = () => {
     `;
   return html;
 };
+
+const mainContainer = document.querySelector("#main-container");
+
+mainContainer.addEventListener("click", (click) => {
+  if (click.target.id.startsWith("request--")) {
+    const [, requestId] = click.target.id.split("--");
+    deleteRequest(parseInt(requestId));
+  }
+});

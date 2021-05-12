@@ -10,3 +10,7 @@ const renderHTML = () => {
 };
 
 renderHTML();
+
+mainContainer.addEventListener("stateChanged", (customEvent) => {
+  renderHTML();
+});

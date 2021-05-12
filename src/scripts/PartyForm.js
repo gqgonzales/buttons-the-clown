@@ -1,3 +1,4 @@
+import { sendRequest } from "./dataAccess.js";
 const mainContainer = document.querySelector("#main-container");
 
 export const PartyForm = () => {
@@ -41,7 +42,7 @@ export const PartyForm = () => {
 <div class="field">
 <input
   type="text"
-  name="partyLength"
+  name="partyDuration"
   class="input"
   placeholder="Party duration (in hours)"
 />
@@ -56,3 +57,40 @@ export const PartyForm = () => {
     `;
   return html;
 };
+
+mainContainer.addEventListener("click", (clickEvent) => {
+  if (clickEvent.target.id === "submitButton") {
+    // Get what the user typed into the form fields
+    const partyParentsName = document.querySelector(
+      "input[name='partyParentsName']"
+    ).value;
+    const partyChildsName = document.querySelector(
+      "input[name='partyChildsName']"
+    ).value;
+    const partyAddress = document.querySelector(
+      "input[name='partyAddress']"
+    ).value;
+    const partyAttendees = document.querySelector(
+      "input[name='partyAttendees']"
+    ).value;
+    const partyDuration = document.querySelector(
+      "input[name='partyDuration']"
+    ).value;
+    const partyDate = document.querySelector(
+      "input[name='partyDate']"
+    ).value;
+
+    // Make an object out of the user input
+    const dataToSendToAPI = {
+      parentsName: partyParentsName,
+      childsName: partyChildsName,
+      address: partyAddress,
+      attendees: partyAttendees,
+      rservationLength: partyDuration,
+      date: partyDate,
+    };
+
+    // Send the data to the API for permanent storage
+    sendRequest(dataToSendToAPI);
+  }
+});
