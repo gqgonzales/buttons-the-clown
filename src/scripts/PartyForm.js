@@ -53,7 +53,7 @@ export const PartyForm = () => {
 </div>
 
 <div class="field">
-<!-- <label class="label" for="partyDate">Date of event</label> -->
+<label for="partyDate">When do you need us?:</label>
 <input type="date" name="partyDate" class="input" placeholder="Date of Event (click to select)" />
 </div>
 
