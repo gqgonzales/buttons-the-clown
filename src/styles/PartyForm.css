@@ -1,0 +1,25 @@
+.party-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.field,
+.button {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 50%;
+  margin: 1rem 2rem;
+}
+
+.button {
+  color: black;
+  background-color: yellow;
+  text-align: center;
+}
+
+.label {
+  text-align: center;
+}

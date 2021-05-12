@@ -1,10 +1,14 @@
+@import "./PartyForm.css";
+
 body {
   font-family: "Cabin", sans-serif;
   margin: 0;
   background-color: yellow;
 }
 
-.main-header {
+.main-header,
+.partyRequests,
+.party-form-container {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -17,7 +21,7 @@ body {
   border: dashed 12px #f564a9;
 }
 
-.partyRequests {
+/* .partyRequests {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -28,7 +32,7 @@ body {
   background-color: #44c4f2;
   color: yellow;
   border: dashed 12px #f564a9;
-}
+} */
 
 .request-object {
   display: flex;
@@ -37,8 +41,9 @@ body {
   list-style-type: none;
 }
 
-.balloons {
+.balloon-container {
   display: flex;
-  max-width: 50%;
+  max-width: 25%;
+  height: auto;
   justify-content: center;
 }
