@@ -28,13 +28,20 @@ export const getRequests = () => {
 };
 
 // Need to pass through family ID etc.
-export const createPartyRequest = (userPartyRequest) => {
+export const createPartyRequest = (
+  userPartyRequest,
+  familyValue
+) => {
+  const newFamilyObject = {
+    parentId: familyValue.parentId,
+    childId: familyValue.childId,
+  };
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(userPartyRequest),
+    body: JSON.stringify(newFamilyObject),
   };
 
   return fetch(`${API}/requests`, fetchOptions)
@@ -119,13 +126,13 @@ export const getChildren = () => {
   return [...applicationState.children];
 };
 
-export const createChildObject = (taco) => {
+export const createChildObject = (kidCreator) => {
   const fetchChildren = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(taco),
+    body: JSON.stringify(kidCreator),
   };
 
   return fetch(`${API}/children`, fetchChildren)
