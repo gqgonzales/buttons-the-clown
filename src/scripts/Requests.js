@@ -3,6 +3,8 @@ import {
   deleteRequest,
   getClowns,
   getFamilies,
+  getCompletions,
+  saveCompletion,
 } from "./dataAccess.js";
 
 export const Requests = () => {
@@ -21,7 +23,7 @@ export const Requests = () => {
               requestObject.date
             } for ${requestObject.reservationLength} hours.
             <select class="clowns" id="clowns">
-              <option value="">Choose</option>
+              <option value="">Who's gonna clown?</option>
               ${clowns
                 .map((clown) => {
                   return `<option value="${requestObject.id}--${clown.id}">${clown.name}</option>`;
@@ -47,5 +49,37 @@ mainContainer.addEventListener("click", (click) => {
   if (click.target.id.startsWith("request--")) {
     const [, requestId] = click.target.id.split("--");
     deleteRequest(parseInt(requestId));
+  }
+});
+
+//  It should create a new state object,
+// and then send that state to a function in your data access module which will POST it to the API.
+
+mainContainer.addEventListener("change", (event) => {
+  if (event.target.id === "clowns") {
+    const clownId = event.target.id;
+    const requestId = event.target.value;
+
+    /*
+              This object should have 3 properties
+                 1. requestId
+                 2. plumberId
+                 3. date_created
+          */
+    const completion = {
+      requestId,
+      clownId,
+      date_created:
+        new Date().toLocaleTimeString() +
+        " " +
+        new Date().toLocaleDateString(),
+    };
+
+    /*
+              Invoke the function that performs the POST request
+              to the `completions` resource for your API. Send the
+              completion object as a parameter.
+    */
+    saveCompletion(completion);
   }
 });

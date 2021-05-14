@@ -1,4 +1,4 @@
-import { sendRequest } from "./dataAccess.js";
+import { createPartyRequest } from "./dataAccess.js";
 const mainContainer = document.querySelector("#main-container");
 
 export const PartyForm = () => {
@@ -9,7 +9,17 @@ export const PartyForm = () => {
         type="text"
         name="partyParentsName"
         class="input"
-        placeholder="Parent's Name"
+        placeholder="Parent's First Name"
+      />
+    </div>
+
+    <div class="party-form">
+    <div class="field">
+      <input
+        type="text"
+        name="partyLastName"
+        class="input"
+        placeholder="Last Name"
       />
     </div>
 
@@ -18,7 +28,7 @@ export const PartyForm = () => {
       type="text"
       name="partyChildsName"
       class="input"
-      placeholder="Child's Name"
+      placeholder="Child's First Name"
     />
   </div>
 
@@ -57,7 +67,9 @@ export const PartyForm = () => {
 <input type="date" name="partyDate" class="input" placeholder="Date of Event (click to select)" />
 </div>
 
-<button class="button" id="submitButton">*~*~*~*~*~*~Let's Party*~*~*~*~*~*~</button>
+<button class="button" id="submitButton">
+*~*~*~*~*~*~Let's Party*~*~*~*~*~*
+</button>
 </div>
     `;
   return html;
@@ -68,6 +80,9 @@ mainContainer.addEventListener("click", (clickEvent) => {
     // Get what the user typed into the form fields
     const partyParentsName = document.querySelector(
       "input[name='partyParentsName']"
+    ).value;
+    const partyLastName = document.querySelector(
+      "input[name='partyLastName']"
     ).value;
     const partyChildsName = document.querySelector(
       "input[name='partyChildsName']"
@@ -89,8 +104,10 @@ mainContainer.addEventListener("click", (clickEvent) => {
     // ).value;
 
     // Make an object out of the user input
-    const dataToSendToAPI = {
+    // Turn me into a request object instead!
+    const filledOutRequestForm = {
       parentsName: partyParentsName,
+      lastName: partyLastName,
       childsName: partyChildsName,
       address: partyAddress,
       attendees: partyAttendees,
@@ -99,12 +116,14 @@ mainContainer.addEventListener("click", (clickEvent) => {
       // clownId: clownId,
     };
 
+    //Make more objects here!
+
     // Send the data to the API for permanent storage
-    sendRequest(dataToSendToAPI);
+    createPartyRequest(filledOutRequestForm);
+
+    // Hold off on the .then()
   }
 });
-
-
 
 /* 
 
