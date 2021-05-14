@@ -12,5 +12,6 @@ const renderHTML = () => {
 renderHTML();
 
 mainContainer.addEventListener("stateChanged", (customEvent) => {
+  console.log("API Data changed, re-rendering HTML...");
   renderHTML();
 });
