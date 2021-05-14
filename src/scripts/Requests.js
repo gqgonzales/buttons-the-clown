@@ -1,20 +1,33 @@
-import { getRequests, deleteRequest } from "./dataAccess.js";
+import {
+  getRequests,
+  deleteRequest,
+  getClowns,
+  getFamilies,
+} from "./dataAccess.js";
 
 export const Requests = () => {
   let requests = getRequests();
+  let clowns = getClowns();
+  let families = getFamilies();
 
   let html = `
         <ul class="request-object">
         ${requests
           .map((requestObject) => {
             return `
-            <li>
-            ID: ${requestObject.id}
-            Clown ID: ${requestObject.clownId}
-            Family ID: ${requestObject.familyId}
-            Address: ${requestObject.address}
-            Date: ${requestObject.date}
-            Hours: ${requestObject.reservationLength}
+            <li class="request-li">
+            The ${families.lastName} family is throwing a party! 
+            Clown needed at ${requestObject.address} on ${
+              requestObject.date
+            } for ${requestObject.reservationLength} hours.
+            <select class="clowns" id="clowns">
+              <option value="">Choose</option>
+              ${clowns
+                .map((clown) => {
+                  return `<option value="${requestObject.id}--${clown.id}">${clown.name}</option>`;
+                })
+                .join("")}
+            </select>
             <button class="request__delete"
                       id="request--${requestObject.id}">
                       Delete

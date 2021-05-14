@@ -36,9 +36,11 @@ body {
 
 .request-object {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   flex-basis: 50%;
   list-style-type: none;
+  justify-content: space-evenly;
+  padding: 1rem;
 }
 
 .balloon-container {
@@ -51,4 +53,12 @@ body {
 .request__delete {
   background-color: yellow;
   color: black;
+}
+
+.request-li {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  padding: 0.5rem 0;
 }
