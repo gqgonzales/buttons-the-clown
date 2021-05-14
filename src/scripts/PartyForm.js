@@ -1,4 +1,9 @@
-import { createPartyRequest } from "./dataAccess.js";
+import {
+  createPartyRequest,
+  createParentObject,
+  createChildObject,
+  createFamilyObject,
+} from "./dataAccess.js";
 const mainContainer = document.querySelector("#main-container");
 
 export const PartyForm = () => {
@@ -113,14 +118,35 @@ mainContainer.addEventListener("click", (clickEvent) => {
       attendees: partyAttendees,
       reservationLength: partyDuration,
       date: partyDate,
-      // clownId: clownId,
     };
 
     //Make more objects here!
+    const generatedParentObject = {
+      firstName: partyParentsName,
+      lastName: partyLastName,
+    };
 
+    const generatedChildObject = {
+      firstName: partyChildsName,
+      lastName: partyLastName,
+    };
+
+    const generatedFamilyObject = {
+      lastName: partyLastName,
+    };
     // Send the data to the API for permanent storage
-    createPartyRequest(filledOutRequestForm);
 
+    createParentObject(generatedParentObject).then(
+      (capturedParent) => {
+        createChildObject(generatedChildObject).then(
+          (capturedChild) => {
+              createFamilyObject(capturedParent, capturedChild)
+          }
+        );
+      }
+    );
+    createFamilyObject(generatedFamilyObject);
+    createPartyRequest(filledOutRequestForm);
     // Hold off on the .then()
   }
 });

@@ -27,6 +27,7 @@ export const getRequests = () => {
   return copyOfRequests;
 };
 
+// Need to pass through family ID etc.
 export const createPartyRequest = (userPartyRequest) => {
   const fetchOptions = {
     method: "POST",
@@ -86,6 +87,25 @@ export const getParents = () => {
 
 // Make a create post request. What do you want it to make?
 
+export const createParentObject = (taco) => {
+  const fetchParents = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(taco),
+  };
+
+  return fetch(`${API}/parents`, fetchParents)
+    .then((res) => res.json())
+    .then((capturedParent) => {
+      return capturedParent;
+      // mainContainer.dispatchEvent(
+      //   new CustomEvent("stateChanged")
+      // );
+    });
+};
+
 // ------------------ CHILDREN ------------------
 export const fetchChildren = () => {
   return fetch(`${API}/children`)
@@ -99,6 +119,25 @@ export const getChildren = () => {
   return [...applicationState.children];
 };
 
+export const createChildObject = (taco) => {
+  const fetchChildren = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(taco),
+  };
+
+  return fetch(`${API}/children`, fetchChildren)
+    .then((res) => res.json())
+    .then((capturedChild) => {
+      return capturedChild;
+      // mainContainer.dispatchEvent(
+      //   new CustomEvent("stateChanged")
+      // );
+    });
+};
+
 // ------------------ FAMILIES ------------------
 export const fetchFamilies = () => {
   return fetch(`${API}/families`)
@@ -110,6 +149,29 @@ export const fetchFamilies = () => {
 
 export const getFamilies = () => {
   return [...applicationState.families];
+};
+
+export const createFamilyObject = (parentValue, childValue) => {
+  const newFamilyObject = {
+    parentId: parentValue.id,
+    childId: childValue.id,
+    lastName: parentValue.lastName,
+  };
+  const fetchFamilies = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newFamilyObject),
+  };
+
+  return fetch(`${API}/families`, fetchFamilies)
+    .then((res) => res.json())
+    .then(() => {
+      mainContainer.dispatchEvent(
+        new CustomEvent("stateChanged")
+      );
+    });
 };
 
 // ------------------ DELETE REQUESTS ------------------

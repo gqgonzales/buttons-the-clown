@@ -19,7 +19,7 @@ export const Requests = () => {
             return `
             <li class="request-li">
             The ${families.lastName} family is throwing a party! 
-            Clown needed at ${requestObject.address} on ${
+            Laughs needed at ${requestObject.address} on ${
               requestObject.date
             } for ${requestObject.reservationLength} hours.
             <select class="clowns" id="clowns">
@@ -63,7 +63,7 @@ mainContainer.addEventListener("change", (event) => {
     /*
               This object should have 3 properties
                  1. requestId
-                 2. plumberId
+                 2. clownId
                  3. date_created
           */
     const completion = {
