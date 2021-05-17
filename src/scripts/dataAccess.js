@@ -32,16 +32,16 @@ export const createPartyRequest = (
   userPartyRequest,
   familyValue
 ) => {
-  const newFamilyObject = {
-    parentId: familyValue.parentId,
-    childId: familyValue.childId,
-  };
+  // const newFamilyObject = {
+  //   parentId: familyValue.parentId,
+  //   childId: familyValue.childId,
+  // };
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(newFamilyObject),
+    body: JSON.stringify(userPartyRequest, familyValue),
   };
 
   return fetch(`${API}/requests`, fetchOptions)
@@ -158,6 +158,7 @@ export const getFamilies = () => {
   return [...applicationState.families];
 };
 
+//  THIS AINT WORKIN
 export const createFamilyObject = (parentValue, childValue) => {
   const newFamilyObject = {
     parentId: parentValue.id,

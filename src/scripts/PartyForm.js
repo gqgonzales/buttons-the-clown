@@ -140,7 +140,7 @@ mainContainer.addEventListener("click", (clickEvent) => {
       (capturedParent) => {
         createChildObject(generatedChildObject).then(
           (capturedChild) => {
-              createFamilyObject(capturedParent, capturedChild)
+            createFamilyObject(capturedParent, capturedChild);
           }
         );
       }
@@ -150,16 +150,3 @@ mainContainer.addEventListener("click", (clickEvent) => {
     // Hold off on the .then()
   }
 });
-
-/* 
-
-<div class="field">
-<label for="clowns">Choose a Clown:</label>
-<select name="partyClowns">
-  <option value="Buttons">Buttons</option>
-  <option value="Lollipop">Lollipop</option>
-</select>
-</div>
-
-
-*/

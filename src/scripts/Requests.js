@@ -3,7 +3,7 @@ import {
   deleteRequest,
   getClowns,
   getFamilies,
-  getCompletions,
+  // getCompletions,
   saveCompletion,
 } from "./dataAccess.js";
 
